@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">     
+
+<generatorConfiguration>  
+        <classPathEntry location="mysql-connector-java-5.1.34.jar"/>  
+      
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+            <property name="suppressAllComments" value="true" />
+            
+        </commentGenerator>
+      
+            <jdbcConnection driverClass="com.mysql.jdbc.Driver"  
+                connectionURL="jdbc:mysql://127.0.0.1:3306/cms" userId="root" password="mysql94">
+            </jdbcConnection>  
+      
+            <javaTypeResolver>  
+                <property name="forceBigDecimals" value="false" />  
+            </javaTypeResolver>  
+	<!--       dto生成 -->
+            <javaModelGenerator targetPackage="net.yuanma.model"
+                targetProject="./src">  
+                <property name="enableSubPackages" value="true" />  
+                <property name="trimStrings" value="true" />  
+            </javaModelGenerator>  
+      <!--xml配置  -->
+            <sqlMapGenerator targetPackage="net.yuanma.mapper"
+                targetProject="./config">  
+                <property name="enableSubPackages" value="true" />  
+            </sqlMapGenerator>  
+      <!--mapper生成  -->
+            <javaClientGenerator type="XMLMAPPER"  targetPackage="net.yuanma.mapper"
+            	targetProject="./src">  
+                <property name="enableSubPackages" value="true" />  
+            </javaClientGenerator>  
+      
+    <!-- tableName:对应的表名字 
+    	domainObjectName 按表名字的驼峰原则，一个字母大写
+    	column：对应你的表字段的id
+    -->
+        <table tableName="position_menu_relations" domainObjectName="PositionMenuRelations">  
+            <property name="enableSelectByExample" value="true" /> 
+             <property name="enableDeleteByExample" value="true" /> 
+             <property name="enableCountByExample" value="true" /> 
+            <property name="enableUpdateByExample" value="true" />
+             <property name="enableUpdateByPrimaryKey" value="true" /> 
+            <generatedKey column="RELATION_ID" sqlStatement="MySql" identity="true"/> 
+        </table> 
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        <!--  <table tableName="study" domainObjectName="Study">  
+            <property name="enableSelectByExample" value="true" /> 
+             <property name="enableDeleteByExample" value="true" /> 
+             <property name="enableCountByExample" value="true" /> 
+            <property name="enableUpdateByExample" value="true" />
+             <property name="enableUpdateByPrimaryKey" value="true" /> 
+            <generatedKey column="study_id" sqlStatement="MySql" identity="true"/> 
+        </table> -->
+        
+       <!--  <table tableName="business_source" domainObjectName="BusinessSource"> 
+            <property name="enableSelectByExample" value="true" />
+            <property name="enableDeleteByExample" value="true" />
+            <property name="enableCountByExample" value="true" />
+            <property name="enableUpdateByExample" value="true" />
+            <property name="enableUpdateByPrimaryKey" value="true" />
+            <generatedKey column="SOURCE_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        
+ 		<table tableName="business_type" domainObjectName="BusinessType"> 
+            <property name="enableSelectByExample" value="true" />
+            <property name="enableDeleteByExample" value="true" />
+            <property name="enableCountByExample" value="true" />
+            <property name="enableUpdateByExample" value="true" />
+            <property name="enableUpdateByPrimaryKey" value="true" />
+            <generatedKey column="TYPE_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+   
+    	<table tableName="link_man" domainObjectName="LinkMan"> 
+            <property name="enableSelectByExample" value="true" />
+            <property name="enableDeleteByExample" value="true" />
+            <property name="enableCountByExample" value="true" />
+            <property name="enableUpdateByExample" value="true" />
+            <property name="enableUpdateByPrimaryKey" value="true" />
+            <generatedKey column="LINK_MAIN_ID" sqlStatement="MySql" identity="true"/>
+        </table>     
+
+   	<table tableName="source" domainObjectName="Source"> 
+            <property name="enableSelectByExample" value="true" />
+            <property name="enableDeleteByExample" value="true" />
+            <property name="enableCountByExample" value="true" />
+            <property name="enableUpdateByExample" value="true" />
+            <property name="enableUpdateByPrimaryKey" value="true" />
+            <generatedKey column="SOURCE_ID" sqlStatement="MySql" identity="true"/>
+     </table>
+
+   	<table tableName="working_field" domainObjectName="WorkingField"> 
+            <property name="enableSelectByExample" value="true" />
+            <property name="enableDeleteByExample" value="true" />
+            <property name="enableCountByExample" value="true" />
+            <property name="enableUpdateByExample" value="true" />
+            <property name="enableUpdateByPrimaryKey" value="true" />
+            <generatedKey column="FIELD_ID" sqlStatement="MySql" identity="true"/>
+     </table>         -->
+                
+
+
+    </context>
+    </generatorConfiguration>  
